@@ -60,6 +60,12 @@
                 i++;
                 isEvent = true;
                 var word = $("#searchInput").val();
+
+                setTimeout( function() {
+                    isEvent = false;
+                }, 1000 );
+            }
+            if (isEvent){
                 $.ajax({
                     type: "POST",
                     url: 'api.php',
@@ -68,12 +74,7 @@
                         showArticle(data);
                     }
                 });
-
-                setTimeout( function() {
-                    isEvent = false;
-                }, 1000 );
             }
-
         });
 
 
